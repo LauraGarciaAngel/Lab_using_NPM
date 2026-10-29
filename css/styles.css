@@ -1,0 +1,18 @@
+/* Paleta NASA */
+:root {
+    --bg-space: #0b0e14;
+    --bg-module: #161b22;
+    --border-tech: #30363d;
+
+    --nasa-red: #fc3d21;
+    --nasa-red-hover: #e0280e;
+    --nasa-blue: #0b3d91;
+
+    --text-primary: #f0f6fc;
+    --text-telemetry: #8b949e;
+
+    --font-tech: 'Roboto Mono', monospace;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --radius-panel: 6px; /* Bordes rectos e industriales */
+}
