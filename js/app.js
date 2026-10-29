@@ -24,17 +24,18 @@ const formBuscar = document.getElementById("form-buscar");
 
 function validarFecha() {
   const div = document.createElement("div");
-  div.innerHtml = "";
+  div.innerHTML = "";
 
   const hoyMs = Date.now();
   //getTime() trae todos los milisegundos pasados desde 1970 hasta la fecha introducida por el usuario
   const inputFechaMs = new Date(inputFecha.value).getTime();
 
-  if (inputFechaMs > hoyMs) {
-    console.log("La fecha elegida es en el futuro");
+  const fechaInicioMs = new Date("1995-06-15").getTime();
+
+  if (inputFechaMs > hoyMs || inputFechaMs < fechaInicioMs) {
 
     div.innerHTML = `
-        <p>La foto elegida aún no ha sido publicada</p>
+        <p>La foto elegida no existe</p>
     `;
     formBuscar.appendChild(div);
   }
