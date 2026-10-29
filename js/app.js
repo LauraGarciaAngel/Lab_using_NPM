@@ -26,6 +26,14 @@ function validarFecha() {
   const div = document.createElement("div");
   div.innerHTML = "";
 
+  if(inputFecha.value == ""){
+    div.innerHTML = `
+        <p>La fecha no puede estar vacia</p>
+    `;
+    formBuscar.appendChild(div);
+    return;
+  }
+
   const hoyMs = Date.now();
   //getTime() trae todos los milisegundos pasados desde 1970 hasta la fecha introducida por el usuario
   const inputFechaMs = new Date(inputFecha.value).getTime();
