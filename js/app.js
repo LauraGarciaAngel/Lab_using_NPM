@@ -1,4 +1,3 @@
-
 dayjs.locale("es");
 
 const API = "https://science.nasa.gov/wp-json/wp/v2/apod-basic";
@@ -21,4 +20,24 @@ const apodExplicacion = document.getElementById("apod-explicacion");
 const btnFavorito = document.getElementById("btn-favorito");
 const listaFavoritos = document.getElementById("lista-favoritos");
 const favoritosVacio = document.getElementById("favoritos-vacio");
+const formBuscar = document.getElementById("form-buscar");
 
+function validarFecha() {
+  const div = document.createElement("div");
+  div.innerHtml = "";
+
+  const hoyMs = Date.now();
+  //getTime() trae todos los milisegundos pasados desde 1970 hasta la fecha introducida por el usuario
+  const inputFechaMs = new Date(inputFecha.value).getTime();
+
+  if (inputFechaMs > hoyMs) {
+    console.log("La fecha elegida es en el futuro");
+
+    div.innerHTML = `
+        <p>La foto elegida aún no ha sido publicada</p>
+    `;
+    formBuscar.appendChild(div);
+  }
+}
+
+btnBuscar.addEventListener("click", validarFecha);
