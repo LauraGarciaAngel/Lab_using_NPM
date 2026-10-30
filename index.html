@@ -24,7 +24,7 @@
                 <form id="form-buscar" class="mb-4">
                     <label for="input-fecha" class="form-label">Elige una fecha</label>
                     <input type="date" id="input-fecha" class="form-control" min="1995-06-16">
-                    <button type="button" id="btn-buscar" class="btn-primary">Buscar</button>
+                    <button type="button" id="btn-buscar" class="btn-nasa-blue">Buscar</button>
                 </form>
 
                 <div id="mensaje" role="alert alert-danger" role="alert" hidden></div>
@@ -54,8 +54,74 @@
         </div>
     </main>
 
-    <footer>
-        <small>Datos: NASA Astronomy Picture of the Day</small>
+
+    <footer class="site-footer mt-auto">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+                <!-- Columna 1: Branding del Proyecto -->
+                <div class="col">
+                    <h2 class="footer-heading h5">Explorador APOD</h2>
+                    <p class="footer-copy small">
+                        Fotografía astronómica del día provista por la API oficial de la NASA.
+                    </p>
+                    <p class="footer-copy small mb-0">© 2026 APOD Explorer</p>
+                </div>
+
+                <!-- Columna 2: Navegación Interna -->
+                <div class="col">
+                    <h2 class="footer-heading h5">Navegación</h2>
+                    <ul class="nav flex-column small">
+                        <li class="nav-item"><a href="#form-buscar" class="nav-link p-0 mb-1">Buscar por fecha</a></li>
+                        <li class="nav-item"><a href="#apod" class="nav-link p-0 mb-1">Foto del día</a></li>
+                        <li class="nav-item"><a href="#lista-favoritos" class="nav-link p-0 mb-1">Mis Favoritos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Desarrolladores -->
+                <section class="col" id="equipo" aria-labelledby="team-heading">
+                    <h2 class="footer-heading h5" id="team-heading">Desarrollo</h2>
+                    <ul class="nav flex-column small">
+                        <li class="nav-item mb-1">
+                            <a href="https://github.com/LauraGarciaAngel" class="nav-link p-0" target="_blank"
+                                rel="noopener noreferrer">
+                                GitHub Laura (Lazu24)
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a href="https://github.com/Andresflorezdev" class="nav-link p-0" target="_blank"
+                                rel="noopener noreferrer">
+                                GitHub Andres (Andresflorezdev)
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a href="https://github.com/Camilo-Forero04" class="nav-link p-0" target="_blank"
+                                rel="noopener noreferrer">
+                                GitHub Camilo (Camilo-Forero04)
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a href="https://github.com/IzaacAO" class="nav-link p-0" target="_blank"
+                                rel="noopener noreferrer">
+                                GitHub Isaac (IzaacAO)
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a href="https://github.com/JhonatanReyes276" class="nav-link p-0" target="_blank"
+                                rel="noopener noreferrer">
+                                GitHub Jhonatan (JhonatanReyes276)
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Columna 4: Créditos de Datos -->
+                <div class="col">
+                    <h2 class="footer-heading h5">Fuente de datos</h2>
+                    <p class="footer-copy small mb-1">NASA Open APIs</p>
+                    <small class="footer-copy d-block">Astronomy Picture of the Day</small>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
