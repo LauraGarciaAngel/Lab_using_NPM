@@ -1,15 +1,23 @@
 {
-  "name": "apod",
+  "name": "lab_using_npm",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LauraGarciaAngel/Lab_using_NPM.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LauraGarciaAngel/Lab_using_NPM/issues"
+  },
+  "homepage": "https://github.com/LauraGarciaAngel/Lab_using_NPM#readme",
   "dependencies": {
     "dayjs": "^1.11.23"
   }
