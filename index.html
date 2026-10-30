@@ -21,16 +21,16 @@
     <main class="container my-4">
         <div class="row g-4">
             <section class="col-12 col-lg-8">
-                <form id="form-buscar" class="mb-4">
+                <form id="form-buscar" class="mb-4" novalidate>
                     <label for="input-fecha" class="form-label">Elige una fecha</label>
                     <input type="date" id="input-fecha" class="form-control" min="1995-06-16">
-                    <button type="button" id="btn-buscar" class="btn-nasa-blue">Buscar</button>
+                    <button type="submit" id="btn-buscar" class="btn-nasa-blue">Buscar</button>
                 </form>
 
-                <div id="mensaje" role="alert alert-danger" role="alert" hidden></div>
+                <div id="mensaje" role="alert" hidden></div>
 
                 <!-- Indicador de carga con Spinner de Bootstrap -->
-                <div id="cargando" class="text-center my-4" hidden>
+                <div id="cargando" class="text-center my-4" aria-live="polite" hidden>
                     <div class="spinner-border text-danger" role="status">
                         <span class="visually-hidden">Cargando...</span>
                     </div>
@@ -41,9 +41,9 @@
                     <h2 id="apod-titulo"></h2>
                     <p id="apod-fecha"></p>
                     <img id="apod-imagen" class="img-fluid rounded mb-3" src="" alt="">
-                    <a id="apod-video" href="#" target="_blank" rel="noopener" hidden>Ver el video en NASA</a>
+                    <a id="apod-video" target="_blank" rel="noopener" hidden>Ver el video en NASA</a>
                     <div id="apod-explicacion"></div>
-                    <button type="button" class="btn-primary">⭐ Guardar en favoritos</button>
+                    <button type="button" id="btn-favorito" class="btn-primary" disabled> Guardar en favoritos</button>
                 </article>
             </section>
             <aside class="col-12 col-lg-4">
@@ -57,7 +57,7 @@
 
     <footer class="site-footer mt-auto">
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 mt-2">
                 <!-- Columna 1: Branding del Proyecto -->
                 <div class="col">
                     <h2 class="footer-heading h5">Explorador APOD</h2>
@@ -123,8 +123,6 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="node_modules/dayjs/dayjs.min.js"></script>
     <script src="node_modules/dayjs/locale/es.js"></script>

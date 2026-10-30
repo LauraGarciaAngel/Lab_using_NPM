@@ -1,212 +1,209 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
-/* Paleta NASA */
+
 :root {
-    --bg-space: #0b0e14;
-    --bg-module: #161b22;
-    --border-tech: #30363d;
-    --bg-card: #1c2128;
-
-    --nasa-red: #fc3d21;
-    --nasa-red-hover: #e0280e;
-    --nasa-blue: #0b3d91;
-    --nasa-blue-hover: #0f4eb8;
-
-    --text-primary: #f0f6fc;
-    --text-telemetry: #8b949e;
-
-    --font-tech: 'Roboto Mono', monospace;
-    --font-body: 'Inter', system-ui, sans-serif;
-
-    --radius-panel: 6px; /* Bordes rectos e industriales */
+  --bg-space: #0b0e14;
+  --bg-module: #161b22;
+  --bg-card: #1c2128;
+  --border-tech: #30363d;
+  --nasa-red: #fc3d21;
+  --nasa-blue: #0b3d91;
+  --nasa-blue-hover: #0f4eb8;
+  --text-primary: #f0f6fc;
+  --text-telemetry: #8b949e;
+  --font-tech: 'Roboto Mono', monospace;
+  --font-body: 'Inter', system-ui, sans-serif;
 }
-/* Estilos Bases */
-body {/* 
-  background-color: var(--bg-space); */
+
+/* Estilos generales */
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  margin: 0;
+  border-top: 2px solid var(--nasa-blue);
+  background-color: var(--bg-module);
   color: var(--text-primary);
   font-family: var(--font-body);
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-module);
-  border-top: 2px solid var(--nasa-blue);
 }
-h1, h2, .nasa-title {
+
+h1,
+h2 {
   font-family: var(--font-tech);
   text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.btn-primary {
-  background-color: var(--nasa-blue);
-  color: #ffffff;
-  border: none;
-  font-family: var(--font-tech);
-  font-weight: bold;
-  border-radius: var(--radius-panel);
-  padding: 10px 18px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-.btn-primary:hover {
-  background-color: var(--nasa-red-hover);
-}
-.btn-nasa-blue {
-  background-color: var(--nasa-blue);
-  color: #ffffff;
-  border: none;
-  font-family: var(--font-tech);
-  border-radius: var(--radius-panel);
-  padding: 10px 18px;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-nasa-blue:hover {
-  background-color: var(--nasa-blue-hover);
-  box-shadow: 0 0 8px rgba(22, 85, 190, 0.4);
-}
-/* Estructura del maquetado */
-
+/* Encabezado */
 header {
   background-color: var(--bg-module);
   background-image: linear-gradient(180deg, rgba(11, 61, 145, 0.4), transparent 45%);
   border-bottom: 2px solid var(--nasa-blue);
-  padding: 2rem 1.5rem;
+  background-color: var(--bg-module);
   text-align: center;
 }
+
 header h1 {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
   font-size: 2.2rem;
 }
+
 header p {
+  margin: 0;
   color: var(--text-telemetry);
   font-family: var(--font-tech);
-  margin: 0;
-  font-size: 0.9rem;
 }
-main {
-  max-width: 1200px;
-  width: 90%;
-  margin: 2rem auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  flex: 1 0 auto;
-}
-@media (min-width: 992px) {
-  main {
-    grid-template-columns: 2.5fr 1fr;
-  }
-}
-section, aside {
-  background-color: var(--bg-module);
-  border: 1px solid var(--border-tech);
-  border-radius: var(--radius-panel);
-  padding: 1.5rem;
-}
-/* Formularios Inputs */
 
+/* Contenido principal */
+main {
+  width: 100%;
+  max-width: 1320px;
+  margin: 2rem auto;
+  flex: 1;
+}
+
+main section,
+main aside {
+  padding: 1.5rem;
+  border: 1px solid var(--border-tech);
+  border-radius: 6px;
+  background-color: var(--bg-module);
+}
+
+main > .row {
+  align-items: flex-start;
+}
+
+main aside {
+  height: fit-content;
+}
+
+/* Búsqueda por fecha */
 #form-buscar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-tech);
-  margin-bottom: 1.5rem;
 }
+
 #form-buscar label {
-  font-family: var(--font-tech);
   color: var(--text-telemetry);
+  font-family: var(--font-tech);
   font-size: 0.85rem;
   text-transform: uppercase;
 }
-.form-control:focus, 
-.form-control:hover {
-  border-color: #ced4da; 
-  box-shadow: none;      
-  outline: 0;            
-}
+
 #input-fecha {
-  background-color: var(--bg-space);
+  padding: 0.5rem 0.75rem;
   border: 1px solid var(--border-tech);
+  border-radius: 6px;
+  outline: none;
+  background-color: var(--bg-space);
   color: var(--text-primary);
   font-family: var(--font-tech);
-  padding: 8px 12px;
-  border-radius: var(--radius-panel);
-  outline: none;
 }
-#input-fecha:focus {
-  border-color: var(--nasa-red);
-}
-#input-fecha::-webkit-calendar-picker-indicator {
-  filter: invert(0.8);
-  cursor: pointer;
-}
-/* #btn-buscar {
-  background-color: var(--nasa-red);
-  color: #ffffff;
-  border: none;
-  font-family: var(--font-tech);
-  font-weight: bold;
-  border-radius: var(--radius-panel);
-  padding: 10px 18px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-#btn-buscar:hover {
-  background-color: var(--nasa-red-hover);
-} */
-/* Mensaje de estado */
 
-#mensaje {
-  background-color: rgba(252, 61, 33, 0.15);
-  border: 1px solid var(--nasa-red);
-  color: #ff8170;
-  padding: 1rem;
-  border-radius: var(--radius-panel);
+#input-fecha:focus {
+  border-color: var(--nasa-blue);
+}
+
+#input-fecha::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.8);
+}
+
+/* Botones */
+.btn-primary,
+.btn-nasa-blue {
+  padding: 0.65rem 1.1rem;
+  border: 0;
+  border-radius: 6px;
+  background-color: var(--nasa-blue);
+  color: #ffffff;
   font-family: var(--font-tech);
+  cursor: pointer;
+}
+
+.btn-primary:hover,
+.btn-nasa-blue:hover {
+  background-color: var(--nasa-blue-hover);
+}
+
+.btn-primary:disabled,
+#btn-buscar:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+/* Mensajes y carga */
+#mensaje {
   margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--nasa-red);
+  border-radius: 6px;
+  background-color: rgba(252, 61, 33, 0.15);
+  color: #ff8170;
+  font-family: var(--font-tech);
 }
 
 #cargando {
-  font-family: var(--font-tech);
-  color: var(--text-telemetry);
-  text-align: center;
   padding: 2rem 0;
+  color: var(--text-telemetry);
+  font-family: var(--font-tech);
+  text-align: center;
 }
-/* APOD */
 
+/* Foto del día */
 #apod {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 #apod-titulo {
-  font-size: 1.5rem;
   margin: 0;
+  font-size: 1.5rem;
 }
+
+#apod-imagen {
+  width: 100%;
+  max-height: 700px;
+  background-color: var(--bg-space);
+  object-fit: contain;
+}
+
+#apod-explicacion {
+  color: var(--text-telemetry);
+  line-height: 1.7;
+}
+
+#apod-explicacion a {
+  color: #79b8ff;
+}
+
 #apod-video {
-  display: inline-block;
   align-self: flex-start;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border-tech);
+  border-radius: 6px;
+  background-color: var(--bg-card);
   color: #58a6ff;
   font-family: var(--font-tech);
   text-decoration: none;
-  border: 1px solid var(--border-tech);
-  background-color: var(--bg-card);
-  padding: 8px 14px;
-  border-radius: var(--radius-panel);
 }
+
 #apod-video:hover {
+  border-color: var(--nasa-blue);
   text-decoration: underline;
-  border-color: var(--nasa-red);
 }
-/* Lista de favoritos */
+
+/* Favoritos */
 aside h2 {
-  font-size: 1.2rem;
-  border-bottom: 1px solid var(--border-tech);
-  padding-bottom: 0.75rem;
   margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-tech);
+  font-size: 1.2rem;
 }
 
 #favoritos-vacio {
@@ -215,86 +212,91 @@ aside h2 {
 }
 
 #lista-favoritos {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+
 #lista-favoritos li {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-tech);
-  border-radius: var(--radius-panel);
   padding: 0.75rem 1rem;
-  cursor: pointer;
-  transition: border-color 0.2s ease;
+  border: 1px solid var(--border-tech);
+  border-radius: 6px;
+  background-color: var(--bg-card);
 }
 
 #lista-favoritos li:hover {
-  border-color: var(--nasa-red);
+  border-color: var(--nasa-blue);
 }
 
-#lista-favoritos li strong {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
+.favorite-load {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-primary);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
-#lista-favoritos li span {
-  font-family: var(--font-tech);
-  font-size: 0.75rem;
-  color: var(--text-telemetry);
+.favorite-load:hover,
+.favorite-load:focus-visible {
+  color: #79b8ff;
 }
+
+/* Pie de página */
 .site-footer {
   background-color: var(--bg-module);
   background-image: linear-gradient(0deg, rgba(252, 61, 33, 0.06), transparent 45%);
-  border-top: 2px solid var(--nasa-blue);
+  border-top: 2px solid var(--nasa-red);
+  background-color: var(--bg-module);
   color: var(--text-telemetry);
   font-family: var(--font-body);
   font-size: 0.875rem;
-  margin-top: auto;
-  padding: 2.5rem 0 1.5rem;
-  text-align: left;
-}
-
-.site-footer #equipo {
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  padding: 0 0.75rem;
 }
 
 .footer-heading {
-  font-family: var(--font-tech);
-  color: var(--text-primary);
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
   margin-bottom: 0.9rem;
   padding-bottom: 0.65rem;
   border-bottom: 1px solid var(--border-tech);
+  color: var(--text-primary);
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
 }
 
 .footer-copy {
-  line-height: 1.7;
   color: var(--text-telemetry);
+  line-height: 1.7;
 }
 
 .site-footer .nav-link {
   color: var(--text-telemetry);
-  border-radius: 3px;
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .site-footer .nav-link:hover,
 .site-footer .nav-link:focus-visible {
   color: var(--nasa-red);
-  transform: translateX(3px);
 }
 
-.site-footer .nav-link:focus-visible {
-  outline: 2px solid var(--nasa-red);
-  outline-offset: 3px;
+/* Ajustes para celular */
+@media (max-width: 575.98px) {
+  main {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  main section,
+  main aside {
+    padding: 1.25rem;
+  }
+
+  #form-buscar .form-control,
+  #form-buscar button {
+    width: 100%;
+  }
 }
