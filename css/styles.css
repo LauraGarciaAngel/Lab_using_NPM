@@ -20,7 +20,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  border-top: 2px solid var(--nasa-blue);
   background-color: var(--bg-module);
   color: var(--text-primary);
   font-family: var(--font-body);
@@ -42,12 +41,10 @@ header {
 }
 
 header h1 {
-  margin: 0 0 0.5rem;
   font-size: 2.2rem;
 }
 
 header p {
-  margin: 0;
   color: var(--text-telemetry);
   font-family: var(--font-tech);
 }
@@ -250,7 +247,7 @@ aside h2 {
 /* Pie de página */
 .site-footer {
   background-color: var(--bg-module);
-  background-image: linear-gradient(0deg, rgba(252, 61, 33, 0.06), transparent 45%);
+  background-image: linear-gradient(0deg, rgba(252, 61, 33, 0.06), transparent 55%);
   border-top: 2px solid var(--nasa-red);
   background-color: var(--bg-module);
   color: var(--text-telemetry);
