@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function mostrarCargando(espera) {
   if (espera) {
-    cargando.classList.remove("hidden");
-    contenedorApod.classList.add("hidden");
+    cargando.hidden = false; 
+    contenedorApod.hidden = true;
   } else {
-    cargando.classList.add("hidden");
-    contenedorApod.classList.remove("hidden");
+    cargando.hidden = true;
+    contenedorApod.hidden = false; 
   }
 }
 
@@ -131,7 +131,9 @@ function validarFecha() {
         <p>La foto elegida no existe</p>
     `;
     formBuscar.appendChild(div);
+    return;
   }
+  cargarApod(inputFecha.value);
 }
 
 btnBuscar.addEventListener("click", validarFecha);
@@ -185,9 +187,7 @@ function renderizarFav() {
         // evento del clic en un favorito se carga el APOD[cite : 6]
         li.addEventListener("click", () => {
             // aqui agrego la funcion de busca por fecha pasandole el fav.date
-            const fechaFormateada = dayjs(fav.date).format("YYMMDD");
-
-            console.log("APOD guardada con fecha formateada: ", fechaFormateada);
+        cargarApod(fav.date);
         });
         listaFavoritos.appendChild(li);
     });
