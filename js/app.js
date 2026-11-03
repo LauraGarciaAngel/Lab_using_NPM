@@ -50,3 +50,69 @@ function validarFecha() {
 }
 
 btnBuscar.addEventListener("click", validarFecha);
+
+// Favoritos parte 3 Andres :)
+function guardarFavorito() {
+    if (!apodActual) {
+        mensaje.textContent = "No hay APOD cargada para guardar";
+        return;
+    }
+
+    let favoritos = JSON.parse(localStorage.getItem(FAVORITOS)) || [];
+
+    const existe = favoritos.some(fav => fav.date === apodActual.date);
+
+    if (existe) {
+        mensaje.textContent = "esta APOD ya guardado en favoritos.";
+        return;
+    }
+
+    // Guardamos date y title
+    const FavoritoNuevo = {
+        date: apodActual.date,
+        title: apodActual.title
+    };
+
+    favoritos.push(FavoritoNuevo);
+
+    // guardamos en localStorage
+    localStorage.setItem(FAVORITOS, JSON.stringify(favoritos));
+
+    mensaje.textContent = "se guardo la APOD en favoritos";
+    renderizarFav();
+}
+
+function renderizarFav() {
+    if (!listaFavoritos) return;
+    listaFavoritos.innerHTML = "";
+
+    let favoritos = JSON.parse(localStorage.getItem(FAVORITOS)) || [];
+
+    // se usa hidden para mostrar o ocultar el mensaje de "vacio"
+    if (favoritosVacio) {
+        favoritosVacio.hidden = favoritos.length > 0;
+    }
+
+    favoritos.forEach(fav => {
+        const li = document.createElement("li");
+        li.textContent = `${fav.date} - ${fav.title}`;
+
+        // evento del clic en un favorito se carga el APOD[cite : 6]
+        li.addEventListener("click", () => {
+            // aqui agrego la funcion de busca por fecha pasandole el fav.date
+            const fechaFormateada = dayjs(fav.date).format("YYMMDD");
+
+            console.log("APOD guardada con fecha formateada: ", fechaFormateada);
+        });
+        listaFavoritos.appendChild(li);
+    });
+}
+
+// Escuchadores de evento para favorito
+if (btnFavorito) {
+    btnFavorito.addEventListener("click", guardarFavorito);
+}
+// cargo la lista de favoritos
+document.addEventListener("DOMContentLoaded", () => {
+    renderizarFav();
+})
