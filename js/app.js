@@ -21,6 +21,7 @@ const btnFavorito = document.getElementById("btn-favorito");
 const listaFavoritos = document.getElementById("lista-favoritos");
 const favoritosVacio = document.getElementById("favoritos-vacio");
 const formBuscar = document.getElementById("form-buscar");
+const div = document.createElement("div");
 
 document.addEventListener("DOMContentLoaded", () => {
   const hoyFormateado = dayjs().format("YYYY-MM-DD");
@@ -108,7 +109,6 @@ function renderizarApod(apod) {
 }
 
 function validarFecha() {
-  const div = document.createElement("div");
   div.innerHTML = "";
 
   if(inputFecha.value == ""){
